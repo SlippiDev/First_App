@@ -1,0 +1,89 @@
+<html>
+<title>My Complete Calculator</title>
+<body bgcolor="blue">
+<h1 align="center"> My third Calculator </h1>
+<h2 align="center">This Calculator performs addition, subtraction, or multiplication of four numbers</h2>
+
+
+
+
+
+
+<input id = "box1" placeholder = "Enter the first number">
+<br>
+<br>
+<input id = "box2" placeholder = "Enter the second number">
+<br>
+<br>
+<input id = "box3" placeholder = "Enter the third number">
+<br>
+<br>
+<input id = "box4" placeholder = "Enter the fourth number">
+<br>
+<br>
+<button onclick="add()" id = "infotaker">Press this button to add</button>&nbsp;
+<button onclick="multiply()" id = "multiplicationbutton">Press this button to multiply</button>&nbsp;
+<button onclick="subtraction()" id= "subtractionbutton">Press this button to subtract</button>&nbsp;
+<button onclick="division()" id= "divisionbutton">Press this button to divide</button>
+<br>
+<br>
+<input id = "totalbox" placeholder = "Your answer will come here">
+
+
+</body>
+
+
+<script>
+function add() 
+{
+var number1 = parseInt(document.getElementById("box1").value); 
+var number2 = parseInt(document.getElementById("box2").value);
+var number3 = parseInt(document.getElementById("box3").value);
+var number4 = parseInt(document.getElementById("box4").value);
+var total = number1 + number2 + number3 + number4;
+document.getElementById("totalbox").value = total;
+}
+
+function multiply()
+{
+var number1 = parseInt(document.getElementById("box1").value); 
+var number2 = parseInt(document.getElementById("box2").value);
+var number3 = parseInt(document.getElementById("box3").value);
+var number4 = parseInt(document.getElementById("box4").value);
+var total = number1 * number2 * number3 * number4;
+document.getElementById("totalbox").value = total;
+}
+
+function subtraction()
+{
+var number1 = parseInt(document.getElementById("box1").value); 
+var number2 = parseInt(document.getElementById("box2").value);
+var number3 = parseInt(document.getElementById("box3").value);
+var number4 = parseInt(document.getElementById("box4").value);
+var total = number1 - number2 - number3 - number4;
+document.getElementById("totalbox").value = total;
+
+}
+
+function division()
+{
+
+var number1 = parseInt(document.getElementById("box1").value); 
+var number2 = parseInt(document.getElementById("box2").value);
+var number3 = parseInt(document.getElementById("box3").value);
+var number4 = parseInt(document.getElementById("box4").value);
+var total = (number1 / number2 / number3 / number4);
+document.getElementById("totalbox").value = total;
+
+}
+
+
+</script>
+
+
+
+
+
+
+
+</html>

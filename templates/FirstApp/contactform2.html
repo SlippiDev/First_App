@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Form</title>
+</head>
+<body>
+<form method = "POST" action = "#">
+    {% csrf_token %}
+    <div>
+        <label for = "fullname">
+            Full Name
+        </label>
+        <input type = "text" name = "fullname" value = "">
+        <label for = "email">eMail</label>
+        <input type = "text" name = "email" value = "">
+        <label for = "Contact">Contact</label>
+        <input type = "text" name = "contact" value = "">
+        <label for = "message">Message</label>
+        <input type = "text" name = "message" value = "">
+        <button type = "submit">Submit</button>
+    </div>
+</form>
+
+
+</body>
+</html>

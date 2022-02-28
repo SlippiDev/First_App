@@ -1,0 +1,237 @@
+<html>
+<head>
+    <title>First Webpage</title>
+    <style>
+        *{
+            padding: 0;
+            margin : 0;
+            box-sizing: border-box;
+            
+        }
+        body
+         {
+             background-image: url("/static/FirstApp/media/seattlespaceneedle.jfif");
+             background-size: cover;
+             background-position: top;
+             background-repeat: no-repeat;
+             font-family:sans-serif ;
+
+         }
+        .menu-bar{
+            background:green;
+            text-align: center;
+
+        }
+        .menu-bar ul{
+            display: inline-flex;
+            list-style: none;
+            color: white;
+        }
+        .menu-bar ul li{
+            width: 350px;
+            margin: 5px;
+            padding: 5px;
+
+        }
+        .menu-bar ul li a{
+            text-decoration: none;
+            color: white;
+        }
+        .menu-bar ul li:hover{
+            background:#28ee21;
+            padding: 5px;
+            
+        }
+        .Sub-Menu-1{
+            display: none;
+            background:green;
+            position:absolute;
+            padding: 1px;
+            margin-top: 5px;
+            margin-left: 100px;
+        }
+        .menu-bar ul li:hover .Sub-Menu-1{
+            display: block;
+
+        }
+        .menu-bar ul li:hover .Sub-Menu-1 ul {
+            display: block;
+            min-width: 1px;
+            font-size: 14px;
+            margin: 0px;
+        }
+        .menu-bar ul li:hover .Sub-Menu-1 ul li {
+            width: 150px;
+            padding: 5px;
+            border-bottom: 1px dotted white;
+            background: transparent;     
+            text-align: left;
+            border-radius: 0px;
+
+        }
+        .menu-bar ul li:hover .Sub-Menu-1 ul li a:hover{
+            color: yellowgreen;
+            
+
+        }
+        .Sub-Menu-2{
+            display: none;
+            background: green;
+            position: absolute;
+            padding: 1px;
+            margin-top: 1px;
+            margin-left: 80px;
+        
+        }
+        .hoverme:hover .Sub-Menu-2{
+            display: block;
+
+        }
+        #slides{
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            height: 300px;
+            padding: 0px;
+            margin: 0px;
+            list-style-type: none;
+        }
+        .slide{
+            position: absolute;
+            left: 0px;
+            top: 40px;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            z-index: 1;
+
+
+
+            -webkit-transition: opacity 1s;
+            -moz-transition: opacity 1s;
+            -o-transition: opacity 1s;
+            transition: opacity 1s;
+
+        }
+        .showing{
+            opacity: 0.5;
+            z-index: 2;
+            
+        }
+        .controls{
+            position: relative;
+            top: 310px;
+            left: 0px;
+            background: black;
+            
+        }
+        .controls label{
+            color: white;
+            padding: 20px;
+            margin: 20px;
+
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div class = 'menu-bar'>
+        <ul>
+            <li><a href = '#'>Home</a>
+            <div class = 'Sub-Menu-1'>
+                <ul>
+                    <li><a href="{% url 'pm' %}">Principal Message</a></li>
+                    <li><a href = "{% url 'vm' %}">VP Message</a></li>
+                    <li class = 'hoverme'><a href = '#'>School Team   ></a>
+                    <div class = 'Sub-Menu-2'>
+                    <ul>
+                        <li><a href = '#'>Management</a></li>
+                        <li><a href = '#'>Staff</a></li>
+                        <li><a href = '#'>Facultys</a></li>
+                    </ul>
+
+                    </div>
+                    </li>
+                </ul>
+            </div>
+            </li>
+
+           <li><a href = '#'>About us</a></li>
+           <li><a href = '#'>Infrastructure</a>
+            <div class = 'Sub-Menu-1'>
+                <ul>
+                    <li><a href="{% url 'hostel' %}">Hostel Facility</a></li>
+                    <li><a href = '#'>Transport Facility</a></li>
+                    <li><a href = '{% url "upload" %}'>Upload Data</a></li>
+                    <li class = 'hoverme'><a href = '#'>Computer Labs></a>
+                    <div class = 'Sub-Menu-2'>
+                    <ul>
+                        <li><a href = '{% url "robotics" %}'>Robotics</a></li>
+                        <li><a href = '#'>Coding</a></li>
+                        <li><a href = '#'>Design</a></li>
+                    </ul>
+                    </div> 
+                </li>
+                    </div>
+                    
+        </li>
+           <li><a href = '#'>Course</a></li>
+
+        </ul>
+    </div>
+    
+     <ul id = "slides">
+         <li class = "slide showing">{% load static %}
+            <img src = "{% static 'FirstApp/media/img1.jfif' %}" width="300" height="300">
+         </li>
+         <li class = "slide"> {% load static %}
+            <img src = "{% static 'FirstApp/media/img2.jfif' %}" width="300" height="300">
+         </li>
+         <li class = "slide"> {% load static %}
+            <img src = "{% static 'FirstApp/media/img3.jfif' %}" width="300" height="300">
+         </li>
+     </ul>
+     <script type = 'text/javascript'>
+        var slides =  document.querySelectorAll("#slides .slide")
+        var current_slide = 0
+        var slideinterval = setInterval(nextslide, 2000)
+        function nextslide(){
+            gotoslide(current_slide+1)
+        }
+        function previous_slide(){
+            gotoslide(current_slide-1)
+        }
+        function gotoslide(n){
+            slides[current_slide].className="slide"
+            current_slide = (n+slides.length)%slides.length
+            slides[current_slide].className = "slide showing"
+
+        }
+        var playing = true
+        var pause_button = document.getElementById("pause")
+        function pause_slideshow(){
+            playing = false 
+            clearInterval(slideinterval)
+        
+        }
+        function play_slideshow(){
+            playing = true
+            slideinterval = setInterval(nextslide, 2000)
+        }
+        function pl_pause(){
+            if (playing){
+                pause_slideshow()
+            
+            }
+            else{
+                play_slideshow()
+            }
+        }
+     </script>
+     <button class = "controls" id = "previous" onclick="previous_slide()"><label><<</label></button>
+     <button class = "controls" id = "pause" onclick="pl_pause()"><label>||</label></button>
+     <button class = "controls" id = "next" onclick="nextslide()"><label>>></label></button>
+</body>
+
+</html>

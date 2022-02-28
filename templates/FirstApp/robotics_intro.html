@@ -1,0 +1,67 @@
+<html>
+<head>
+
+    <title>
+        Robotics
+    </title>
+    <script type = 'text/javascript'>
+    function addtocsvfile(){
+    csvdata = new Array()
+    csvdata[0] = document.getElementById('name').value
+    csvdata[1] = document.getElementById('email_id').value
+    csvdata[2] = document.getElementById('pass').value
+    window.open('data:text/csv;charset = utf-8,' + csvdata.join(','));
+    clearData();
+    alert('Data Added Successfully.')
+    }
+    function clearData(){
+     document.getElementById('name').value = ''
+     document.getElementById('email_id').value = ''
+     document.getElementById('pass').value = ''
+    }
+
+
+    </script>
+</head>
+
+    <body>
+        <h1 align = 'center'>Robotics</h1>
+        <p><h2 align = 'left'>Our kids need to learn how to do robotics and computer science properly in order for their future to be strong.</h2></p>
+        <p><img src = '/static/FirstApp/media/seattlespaceneedle.jfif' width="300" height="300" align = 'right'>
+            <h1 align = "Center">Application Form for Robotics Club</h1>
+            <form>
+            <label>Name: </label><br>
+            <input type = 'text' size = '20' id = 'name'><br>
+            <label>Email ID: </label><br>
+            <input type = 'text' size = '20' id = 'email_id'><br>
+            <label>Password: </label><br>
+            <input type = 'password' size = '20' id = 'pass'><br>
+            <label>Gender: </label><br>
+            <input type = 'radio'>Male<br>
+            <input type = 'radio'>Female<br>
+            <label>Language: </label><br>
+            <input type = 'checkbox'>English<br>
+            <input type = 'checkbox'>Hindi<br>
+            <input type = 'checkbox'>Other<br>
+            <select>
+                <label>Specialization In Subject</label><br>
+                <option>Select</option>
+                <option>Maths</option>
+                <option>Science</option>
+                <option>History</option>
+            <label>Address: </label><br>
+            <textarea rows = '3' cols = '20'></textarea><br>
+            <input type="submit" value = 'Submit'>
+            <input type = 'reset'>
+
+            
+            
+            </select>
+            <input type = 'button' value = 'AddToCSVFile' onclick = 'javascript:addtocsvfile()'>
+            </form>
+            </body>
+            </html>
+            <h1>Download File</h1>
+            <a href = "{% url 'gotpdf' %}">Download PDF File</a>    
+        </body>
+</html>
