@@ -1,0 +1,146 @@
+<html>
+<head>
+    <title>First Webpage</title>
+    <style>
+        *{
+            padding: 0;
+            margin : 0;
+            box-sizing: border-box;
+            
+        }
+        body
+         {
+             background-image: url(seattlespaceneedle.jfif);
+             background-size: cover;
+             background-position: top;
+             background-repeat: no-repeat;
+             font-family:sans-serif ;
+
+         }
+        .menu-bar{
+            background:green;
+            text-align: center;
+
+        }
+        .menu-bar ul{
+            display: inline-flex;
+            list-style: none;
+            color: white;
+        }
+        .menu-bar ul li{
+            width: 350px;
+            margin: 5px;
+            padding: 5px;
+
+        }
+        .menu-bar ul li a{
+            text-decoration: none;
+            color: white;
+        }
+        .menu-bar ul li:hover{
+            background:#28ee21;
+            padding: 5px;
+            
+        }
+        .Sub-Menu-1{
+            display: none;
+            background:green;
+            position:absolute;
+            padding: 1px;
+            margin-top: 5px;
+            margin-left: 100px;
+        }
+        .menu-bar ul li:hover .Sub-Menu-1{
+            display: block;
+
+        }
+        .menu-bar ul li:hover .Sub-Menu-1 ul {
+            display: block;
+            min-width: 1px;
+            font-size: 14px;
+            margin: 0px;
+        }
+        .menu-bar ul li:hover .Sub-Menu-1 ul li {
+            width: 150px;
+            padding: 5px;
+            border-bottom: 1px dotted white;
+            background: transparent;     
+            text-align: left;
+            border-radius: 0px;
+
+        }
+        .menu-bar ul li:hover .Sub-Menu-1 ul li a:hover{
+            color: yellowgreen;
+            
+
+        }
+        .Sub-Menu-2{
+            display: none;
+            background: green;
+            position: absolute;
+            padding: 1px;
+            margin-top: 1px;
+            margin-left: 80px;
+        
+        }
+        .hoverme:hover .Sub-Menu-2{
+            display: block;
+
+        }
+        .maindiv{
+            width: 70%;
+            height: 800px;
+            position: absolute;
+            left: 40%;
+            top: 60%;
+            transform: translate(-50%,-60%);
+            background-image: url("img1.jfif");
+            background-size: 100% 100%;
+            box-shadow: 1px 2px 10px 10px white;
+            animation: slider 9s infinite linear;
+            opacity: .5;
+            
+            
+        }
+        @keyframes slider{
+            0%{background-image: url("img1.jfif ");}
+            35%{background-image: url("img2.jfif ");}
+            75%{background-image: url("img3.jfif ");}
+      
+        }
+    </style>>
+</head>
+<body>
+    <div class = 'menu-bar'>
+        <ul>
+            <li><a href = '#'>Home</a>
+            <div class = 'Sub-Menu-1'>
+                <ul>
+                    <li><a href="principal_message.html">Principal Message</a></li>
+                    <li><a href = '#'>VP Message</a></li>
+                    <li class = 'hoverme'><a href = '#'>School Team   ></a>
+                    <div class = 'Sub-Menu-2'>
+                    <ul>
+                        <li><a href = '#'>Management</a></li>
+                        <li><a href = '#'>Staff</a></li>
+                        <li><a href = '#'>Facultys</a></li>
+                    </ul>
+
+                    </div>
+                    </li>
+                </ul>
+            </div>
+            </li>
+
+           <li><a href = '#'>About us</a></li>
+           <li><a href = '#'>Infrastructure</a></li>
+           <li><a href = '#'>Course</a></li>
+
+        </ul>
+    </div>
+    
+     
+<div class = 'maindiv'></div>
+</body>
+
+</html>
